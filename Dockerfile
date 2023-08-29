@@ -1,6 +1,5 @@
 FROM amazonlinux:latest
 EXPOSE 7860
-USER 10016
 WORKDIR /app
 COPY . /app
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
@@ -21,3 +20,4 @@ tar -xf linux-amd64-filebrowser.tar.gz &&\
 rm -rf linux-amd64-filebrowser.tar.gz
 
 CMD ["supervisord"]
+USER 10016
