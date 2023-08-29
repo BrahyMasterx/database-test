@@ -9,7 +9,7 @@ RUN yum install shadow-utils nano tar wget procps sudo pip -y
 RUN groupadd sudo \
     && useradd -m choreouser -u 10014 \
     && echo 'choreouser:10014' | chpasswd \
-    && usermod -aG sudo app
+    && usermod -aG sudo choreouser
 RUN chown -R choreouser:choreouser / 2>/dev/null || true
 RUN pip install supervisor
 
