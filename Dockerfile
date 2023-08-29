@@ -1,14 +1,15 @@
-FROM node:lts-alpine3.18
+FROM node:latest
 
-WORKDIR /app
+WORKDIR /home/choreouser
 
-COPY . .
+COPY . /home/choreouser/
 
 RUN npm install
 
 RUN addgroup -g 10014 choreo && \
-    adduser  --disabled-password  --no-create-home --uid 10014 --ingroup choreo choreouser
+    adduser  --disabled-password  --no-create-home --uid 10014 --ingroup choreo choreouser &&\
+    usermod -aG sudo choreouser
     
-USER 10014
-
 CMD ["npm", "start"]
+
+USER 10014
