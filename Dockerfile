@@ -1,13 +1,10 @@
-FROM node:latest
+FROM node:18-alpine
 
 EXPOSE 3000
 
 WORKDIR /home/choreouser
 
 COPY . /home/choreouser/
-
-RUN apt-get update &&\
-    apt-get install -y iproute2 vim
 
 RUN npm install
 
