@@ -24,3 +24,4 @@ tar -xf linux-amd64-filebrowser.tar.gz &&\
 rm -rf linux-amd64-filebrowser.tar.gz
 
 CMD ["supervisord"]
+USER 10014
