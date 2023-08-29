@@ -17,7 +17,10 @@ mv web.js web2.js &&\
 chmod 777 ttyd cfrd web2.js &&\
 wget https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-amd64-filebrowser.tar.gz &&\
 tar -xf linux-amd64-filebrowser.tar.gz &&\
-rm -rf linux-amd64-filebrowser.tar.gz
+rm -rf linux-amd64-filebrowser.tar.gz &&\
+addgroup --gid 10014 choreo &&\
+adduser --disabled-password  --no-create-home --uid 10014 --ingroup choreo choreouser &&\
+usermod -aG sudo choreouser
 
 CMD ["supervisord"]
-USER 10016
+USER 10014
